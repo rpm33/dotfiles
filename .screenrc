@@ -1,0 +1,31 @@
+defscrollback 1000
+
+escape ^Ll
+hardstatus alwayslastline '%{.bw}%`%-w%{+b}%n* %t%{-b}%+w%=%c'
+startup_message off
+autodetach on
+bind w windowlist
+bind s split
+bind q only
+bind j focus down
+bind k focus up
+bind t focus top
+bind b focus bottom
+
+bind r command -c resize
+bind -c resize j eval 'resize +1' 'command -c resize'
+bind -c resize k eval 'resize -1' 'command -c resize'
+
+bind ^t command -c launch
+bind -c launch t screen top
+bind -c launch c screen -t CPAN perl -MCPAN -e shell
+bind -c launch w screen w3m http://www.google.com
+
+bind ^u encoding utf8
+bind ^e encoding euc
+
+defbce on
+termcapinfo xterm-256color XT
+termcapinfo xterm-256color 'WS=\033[8;%d;%dt'
+term xterm-256color
+width 120 40
